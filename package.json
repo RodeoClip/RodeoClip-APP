@@ -1,0 +1,51 @@
+{
+  "name": "rodeoclip",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint app components lib store functions --ext .ts,.tsx",
+    "type-check": "tsc --noEmit",
+    "pages:build": "next build",
+    "pages:deploy": "wrangler pages deploy out --project-name=rodeoclip",
+    "preview": "wrangler pages dev out"
+  },
+  "dependencies": {
+    "@ffmpeg/ffmpeg": "^0.12.10",
+    "@ffmpeg/util": "^0.12.1",
+    "@fontsource/inter": "^5.2.8",
+    "@gsap/react": "^2.1.2",
+    "@phosphor-icons/react": "^2.1.7",
+    "@supabase/supabase-js": "^2.45.4",
+    "clsx": "^2.1.1",
+    "gsap": "^3.15.0",
+    "jszip": "^3.10.1",
+    "lucide-react": "^1.18.0",
+    "motion": "^11.3.0",
+    "mp4-muxer": "^5.2.2",
+    "next": "^16.2.9",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "stripe": "^22.3.0",
+    "tailwind-merge": "^2.3.0",
+    "zod": "^3.23.8",
+    "zustand": "^4.5.2"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260629.1",
+    "@opennextjs/cloudflare": "^1.20.1",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3",
+    "postcss": "^8",
+    "sharp": "^0.35.1",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5",
+    "wrangler": "^4.105.0"
+  }
+}

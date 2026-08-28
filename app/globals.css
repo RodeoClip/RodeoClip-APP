@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --brown-950: #1A1008;
+    --brown-900: #251A0E;
+    --brown-800: #2E1F0F;
+    --brown-700: #3D2A14;
+    --brown-600: #5C3F1E;
+    --amber:     #C17F3A;
+    --amber-light: #D4984F;
+    --cream:     #F5ECD7;
+    --muted:     #8C7560;
+    --border:    rgba(193,127,58,0.18);
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--brown-950);
+    color: var(--cream);
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: rgba(193,127,58,0.35);
+    color: #F5ECD7;
+  }
+
+  /* input[type=color] nativo ignora border-radius do próprio elemento —
+     o swatch interno precisa ser arredondado via pseudo-elementos. */
+  input[type="color"] {
+    padding: 0;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+    border-radius: 9999px;
+    overflow: hidden;
+  }
+  input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 9999px;
+  }
+  input[type="color"]::-moz-color-swatch {
+    border: none;
+    border-radius: 9999px;
+  }
+}
+
+@layer utilities {
+  .text-amber { color: var(--amber); }
+  .bg-amber   { background-color: var(--amber); }
+  .border-amber { border-color: var(--amber); }
+  .text-muted  { color: var(--muted); }
+
+  .grain {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.032;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 128px 128px;
+  }
+
+  /* Seções alternadas — separa visualmente como sites WordPress */
+  .section-alt {
+    background-color: #1F140A;
+  }
+
+  /* Botão primário com bordas arredondadas e sombra */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 9999px;
+    background-color: var(--amber);
+    color: #1A1008;
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.01em;
+    box-shadow: 0 4px 24px rgba(193,127,58,0.35), 0 1px 3px rgba(0,0,0,0.4);
+    transition: background-color 0.18s ease, transform 0.15s ease, box-shadow 0.18s ease;
+  }
+  .btn-primary:hover {
+    background-color: var(--amber-light);
+    box-shadow: 0 6px 32px rgba(193,127,58,0.5), 0 1px 3px rgba(0,0,0,0.4);
+    transform: translateY(-1px);
+  }
+  .btn-primary:active {
+    transform: scale(0.97);
+  }
+
+  /* Card com sombra e hover lift */
+  .wp-card {
+    border-radius: 1rem;
+    border: 1px solid rgba(193,127,58,0.15);
+    background-color: #251A0E;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.35), 0 1px 3px rgba(0,0,0,0.2);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  }
+  .wp-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.45), 0 2px 8px rgba(193,127,58,0.1);
+    border-color: rgba(193,127,58,0.3);
+  }
+
+  /* Eyebrow pill com fundo */
+  .eyebrow-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.875rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(193,127,58,0.3);
+    background-color: rgba(193,127,58,0.08);
+    color: var(--amber);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+}
